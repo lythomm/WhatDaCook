@@ -4,8 +4,8 @@
       <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl h-48 w-full object-cover"> 
     </router-link>
     <h3 class="p-3 font-semibold">{{ meal.strMeal }}</h3>
-    <div class="p-3">
-      <a :href="meal.strYoutube" target="_blank" class="px-3 py-2 rounded border border-red-600">
+    <div class="p-3 mb-2">
+      <a :href="meal.strYoutube" target="_blank" class="px-3 py-2 rounded border border-red-600 hover:bg-red-600 hover:text-white">
         Youtube
       </a>
     </div>
