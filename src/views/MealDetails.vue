@@ -1,23 +1,30 @@
 <template>
   <div class="mx-4">
     <h1 class="text-4xl font-bold my-4">{{ meal.strMeal }}</h1>
-    <img class="w-auto h-80 rounded-2xl mb-4" :src="meal.strMealThumb" :alt="meal.strMeal">
-    <div class="flex justify-between">
-      <div>
-        <b>Area</b> : {{meal.strArea}}
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="flex flex-col justify-center md:mr-8">
+        <img class="w-auto h-80 rounded-2xl mb-4 object-cover" :src="meal.strMealThumb" :alt="meal.strMeal">
+        <div class="flex justify-between">
+          <div>
+            <b>Area</b> : {{meal.strArea}}
+          </div>
+          <div>
+            <b>Category</b> : {{meal.strCategory}}
+          </div>
+          <div v-if="meal.strTags">
+            <b>Tags</b> : {{meal.strTags}}
+          </div>
+          <div v-else>
+            <b>Tags</b> : no tags
+          </div>
+        </div>
       </div>
-      <div>
-        <b>Category</b> : {{meal.strCategory}}
-      </div>
-      <div>
-        <b>Tags</b> : {{meal.strTags}}
-      </div>
-    </div>
-    <div class="mt-4">
-      <h1 class="text-2xl font-semibold">Ingredients</h1>
-      <div class="grid grid-cols-2">
-        <div v-for="index in counter" :key="index">
-          {{ meal[`strIngredient${index}`] }} - {{ meal[`strMeasure${index}`] }}
+      <div class="mt-4">
+        <h1 class="text-2xl font-semibold">Ingredients</h1>
+        <div class="grid grid-cols-2">
+          <div v-for="index in counter" :key="index">
+            {{ meal[`strMeasure${index}`] }} {{ meal[`strIngredient${index}`] }}
+          </div>
         </div>
       </div>
     </div>
