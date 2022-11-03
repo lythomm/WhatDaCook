@@ -17,6 +17,9 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
       <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
     </div>
+    <div class="text-center text-2xl font-semibold" v-if="!meals.length && route.params.letter">
+      No Meals for letter {{route.params.letter}}
+    </div>
   </div>
 </template>
 
@@ -45,6 +48,7 @@ watch(route, () => {
 
 onMounted(() => {
   store.dispatch('searchMealsByLetter', route.params.letter)
+  console.log(route.params.letter);
   keyword.value = route.params.name;
   if (keyword.value) {
     searchMeals();

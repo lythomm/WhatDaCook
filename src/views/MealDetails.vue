@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-4">
+  <div class="pt-5">
     <div class="grid grid-cols-1 md:grid-cols-2">
       <div class="flex flex-col md:mr-8">
         <h1 class="text-4xl font-bold my-4">{{ meal.strMeal }}</h1>
@@ -39,8 +39,9 @@
       </div>
     </div>
     <div class="mt-4 bg-green-leaf text-pale-yellow p-8 rounded-xl">
-      <h1 class="text-2xl font-semibold">Instructions</h1>
+      <h1 class="text-2xl font-semibold mb-4">Instructions</h1>
       <div
+        class="mb-4"
         v-for="(instruction, index) in instructionsArray[0]"
         :key="instruction"
       >
@@ -48,13 +49,14 @@
       </div>
     </div>
     <div class="py-6">
-      <a
-        :href="meal.strYoutube"
-        target="_blank"
-        class="px-3 py-2 rounded border border-red-600 hover:bg-red-600 hover:text-white"
-      >
-        Youtube
-      </a>
+        <a
+          :href="meal.strYoutube"
+          target="_blank"
+          class="p-3 text-red-600 rounded border-2 border-red-600 transition-all hover:bg-red-600 hover:text-white"
+        >
+          Youtube
+        </a>
+        <button class="ml-4 p-2 rounded border-2 border-green-leaf transition-all hover:bg-green-leaf hover:text-pale-yellow" type="button" @click="addMeal">Add Meal</button>
     </div>
   </div>
 </template>
@@ -63,6 +65,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import axiosClient from "../axiosClient";
+import store from '../store'
 
 const route = useRoute();
 const meal = ref({});
@@ -89,5 +92,10 @@ function getNumberOfIngredient() {
       break;
     }
   }
+}
+
+function addMeal() {
+  store.commit("setAddMeal", meal.value);
+  console.log(store.state.selectedMeals);
 }
 </script>
