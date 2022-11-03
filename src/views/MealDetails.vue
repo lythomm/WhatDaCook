@@ -1,8 +1,8 @@
 <template>
   <div class="mx-4">
-    <h1 class="text-4xl font-bold my-4">{{ meal.strMeal }}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2">
-      <div class="flex flex-col justify-center md:mr-8">
+      <div class="flex flex-col md:mr-8">
+        <h1 class="text-4xl font-bold my-4">{{ meal.strMeal }}</h1>
         <img
           class="w-auto h-80 rounded-2xl mb-4 object-cover"
           :src="meal.strMealThumb"
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div>
-        <h1 class="text-2xl font-semibold mb-2">Ingredients</h1>
+        <h1 class="text-2xl font-semibold my-4">Ingredients</h1>
         <div class="grid grid-cols-3">
           <div
             class="md:flex md:align-items md:items-center"
@@ -38,13 +38,13 @@
         </div>
       </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 bg-green-leaf text-pale-yellow p-8 rounded-xl">
       <h1 class="text-2xl font-semibold">Instructions</h1>
       <div
         v-for="(instruction, index) in instructionsArray[0]"
         :key="instruction"
       >
-        {{ index + 1 }}. {{ instruction }}
+        <b>{{ index + 1 }}.</b> {{ instruction }}
       </div>
     </div>
     <div class="py-6">

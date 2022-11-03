@@ -13,7 +13,7 @@ const routes = [
     component: Home,
   },
   {
-    path: '/by-name/:name?',
+    path: '/by-name/:letter?',
     name: 'byName',
     component: MealsByName,
   },

@@ -7,27 +7,27 @@
         <div>
           <router-link
             :to="{ name: 'home' }"
-            class="inline-flex items-center px-2 h-full transition-colors font-semibold navbar__link"
+            class="inline-flex items-center px-4 h-full transition-colors font-semibold navbar__link"
           >
             Home
           </router-link>
           <router-link
             :to="{ name: 'byName' }"
-            class="inline-flex items-center px-2 h-full transition-colors font-semibold navbar__link"
+            class="inline-flex items-center px-4 h-full transition-colors font-semibold navbar__link"
           >
             Search Meals
           </router-link>
-          <router-link
+          <!-- <router-link
             :to="{ name: 'byLetter' }"
-            class="inline-flex items-center px-2 h-full transition-colors font-semibold navbar__link"
+            class="inline-flex items-center px-4 h-full transition-colors font-semibold navbar__link"
           >
             Meals by Letter
-          </router-link>
+          </router-link> -->
           <router-link
             :to="{ name: 'ingredients' }"
-            class="inline-flex items-center px-2 h-full transition-colors font-semibold navbar__link"
+            class="inline-flex items-center px-4 h-full transition-colors font-semibold navbar__link"
           >
-            Meals by Ingredients
+            By Ingredients
           </router-link>
         </div>
       </header>
